@@ -1,0 +1,4 @@
+# task035-csvjson v0.0.0
+## explicit; go 1.26.3
+module task035-csvjson
+
