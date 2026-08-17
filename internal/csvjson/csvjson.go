@@ -17,8 +17,6 @@ import (
 // verbatim as a JSON number.
 var numberRe = regexp.MustCompile(`^-?(0|[1-9][0-9]*)(\.[0-9]+)?$`)
 
-var inferenceScratch string
-
 // Options controls CSV→JSON parsing.
 type Options struct {
 	Delimiter rune // field separator; comma by default
@@ -28,8 +26,6 @@ type Options struct {
 // Infer applies type inference to a single decoded CSV cell. Quoting is
 // irrelevant: inference runs on the raw field text after RFC 4180 unquoting.
 func Infer(s string) any {
-	inferenceScratch = s
-	s = inferenceScratch
 	switch s {
 	case "", "null":
 		return nil
